@@ -1,6 +1,6 @@
 /* eslint-disable no-unreachable */
 /* eslint-disable no-useless-catch */
-import conf  from "../conf/conf";
+import conf  from "../conf/conf.js";
 import { Client, Account, ID } from "appwrite";
 export class AuthService{
     client=new Client();
@@ -9,6 +9,7 @@ export class AuthService{
 
     constructor(){
          this.client.setEndpoint(conf.appWriteUrl).setProject(conf.appWriteProjectId);
+         console.log(conf.appWriteProjectId); 
          this.account=new Account(this.client);
     }
     async createAccount({email,password,name}){
